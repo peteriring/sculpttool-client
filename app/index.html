@@ -1,0 +1,82 @@
+<!doctype html>
+<!--[if !IE]><!--> <html lang="hu" ng-app="sculptClient"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title data-ng-bind="state.current.data.title + ' | SculptTool'"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+  <div class="site">
+     <div ui-view></div> 
+  </div>
+  
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.1/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+        <script src="config.js"></script>
+        
+
+        <script src="framework/root.js"></script>
+        <script src="framework/utils.js"></script>
+        <script src="framework/base.js"></script>
+        <script src="framework/renderer.js"></script>
+        <script src="framework/controls.js"></script>
+
+        <script src="framework/sphereDisplayer.js"></script>
+        <script src="framework/mouseEventHandler.js"></script>
+        <script src="framework/keyboardEventHandler.js"></script>
+        <script src="framework/traitMouseEvent.js"></script>
+        <script src="framework/traitKeyboardEvent.js"></script>
+        <script src="framework/traitDraggable.js"></script>
+        <script src="framework/loader.js"></script>
+        <script src="framework/textureLoader.js"></script>
+        <script src="framework/JSONLoader.js"></script>
+        <script src="framework/sceneHandler.js"></script>
+
+
+        <script src="framework/ToolBrush.js"></script>
+        <script src="framework/ToolFlatten.js"></script>
+        <script src="framework/ToolPaint.js"></script>
+        <script src="canvas/CameraHandler.js"></script>
+        <script src="canvas/CustomSceneHandler.js"></script>
+
+
+        <script src="core/app.js"></script>
+        <script src="socketio.js"></script>
+        <script src="core/services.js"></script>
+        <script src="landing/controller.js"></script>
+        <script src="canvas/controller.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
