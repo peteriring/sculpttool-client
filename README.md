@@ -5,8 +5,8 @@ version 0.12.1.
 
 ## Installation
 
-npm install
-bower install
+1. npm install
+2. bower install
 
 ## Build & development
 
