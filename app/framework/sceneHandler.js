@@ -4,6 +4,29 @@
 	Self.addPublicProperties({
 
 		init: function (socket) {
+			var fps = new Stats();
+		    var ms = new Stats();
+		    var mb = new Stats();
+		    fps.setMode( 0 ); // 0: fps, 1: ms, 2: mb
+		    ms.setMode( 1 ); // 0: fps, 1: ms, 2: mb
+		    mb.setMode( 2 ); // 0: fps, 1: ms, 2: mb
+
+		    fps.domElement.style.position = 'absolute';
+		    fps.domElement.style.left = '100px';
+		    fps.domElement.style.top = '0px';
+
+		    ms.domElement.style.position = 'absolute';
+		    ms.domElement.style.left = '200px';
+		    ms.domElement.style.top = '0px';
+
+		    mb.domElement.style.position = 'absolute';
+		    mb.domElement.style.left = '300px';
+		    mb.domElement.style.top = '0px';
+
+		    document.body.appendChild( fps.domElement );
+		    document.body.appendChild( ms.domElement );
+		    document.body.appendChild( mb.domElement );
+
 
 			this.addPublicProperties({
 				camera: root.ns('classes.CameraHandler').create(new THREE.Object3D),
@@ -15,7 +38,10 @@
 				cache: {},
 				showWireframe: false,
 				userId: Math.random().toString(36).slice(2),
-				socket: socket
+				socket: socket,
+				fps: fps,
+				ms: ms,
+				mb: mb
 			});		
 			
 			this.keyboardHandler.initialize();
@@ -27,7 +53,9 @@
 		startRenderLoop: function () {
 			var that = this;
 			that.renderLoop = window.setInterval(function(){
-				
+				that.fps.begin();
+		        that.ms.begin();
+		        that.mb.begin();
 				that.keyboardHandler.handleEvents ();
 				if (that.activeTool) {
 
@@ -47,8 +75,10 @@
 						root.ns('classes.Renderer').render();
 			    	}
 				}
-
-			}, 1000 / 30);
+				that.fps.end();
+		        that.ms.end();
+		        that.mb.end();
+			}, 1000 / 60);
 		},
 		stopRenderLoop: function () {
 
